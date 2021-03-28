@@ -46,11 +46,62 @@
 					<li class="nav-item">
 						<a href="#" class="nav-link">Contact</a>
 					</li>
+					<li class="nav-item">
+						<button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign_in">
+							Sign in
+						</button>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	
+	<!-- Modal Form Registration -->
+
+	<div class="modal fade" id="sign_in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered modal-xl">
+    		<div class="modal-content">
+		      <div class="modal-header">
+		        <h1 class="modal-title">Sign in</h1>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		        <div class="container-fluid">
+		        	<form>
+			        	<div class="row">
+			        		<div class="col p-3">
+				        		<input type="text" class="form-control" placeholder="Username" aria-label="Username">
+				        		<input type="password" class="form-control" placeholder="Password" aria-label="Surname">
+				        		<input type="text" class="form-control" placeholder="Email" aria-label="Email">
+				        		<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+				        		
+			        		</div>
+			        		<div class="col p-3">
+			        			<input type="text" class="form-control" placeholder="Username" aria-label="Username">
+				        		<input type="password" class="form-control" placeholder="Password" aria-label="Surname">
+			        		</div>
+			        	</div>
+			        	<div class="row">
+			        		<div class="col">
+			        			<button type="button btn-lg" class="btn btn-outline-success">Create account</button>
+			        		</div>
+			        		<div class="col">
+			        			<button type="button btn-lg" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#log_in">Log in</button>
+			        		</div>
+			        	</div>
+		        	</form>
+		        </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		      </div>
+    		</div>
+  		</div>
+	</div>
+
+
+	<!-- End of Modal -->
+
 	<!-- Slider -->
 	<div id="slider" class="carousel slide" data-bs-interval="5000" data-bs-ride="carousel">
 		<div class="carousel-inner">
