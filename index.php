@@ -83,7 +83,6 @@
     </nav>
 
     <!-- Modal Form Registration -->
-
     <div
       class="modal fade"
       id="sign_in"
@@ -104,62 +103,35 @@
           </div>
           <div class="modal-body">
             <div class="container-fluid">
-              <form>
+              <form method="post">
                 <div class="row">
                   <div class="col p-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Username"
-                      aria-label="Username"
+                    <input type="text" class="form-control" name="rlogin" placeholder="Username" aria-label="Username"
                     />
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Password"
-                      aria-label="Surname"
+                    <input type="password" class="form-control" name="rpass" placeholder="Password" aria-label="Surname"
                     />
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Email"
-                      aria-label="Email"
+                    <input type="text" class="form-control" name="remail" placeholder="Email" aria-label="Email"
                     />
                     <div id="emailHelp" class="form-text">
                       We'll never share your email with anyone else.
                     </div>
                   </div>
                   <div class="col p-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Username"
-                      aria-label="Username"
+                    <input type="text" class="form-control" name="llogin" placeholder="Username" aria-label="Username"
                     />
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Password"
-                      aria-label="Surname"
+                    <input type="password" class="form-control" name="lpass" placeholder="Password" aria-label="Surname"
                     />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col">
-                    <button
-                      type="button btn-lg"
-                      class="btn btn-outline-success"
-                    >
+                    <button type="button btn-lg" class="btn btn-outline-success">
                       Create account
                     </button>
+                    </form>
                   </div>
                   <div class="col">
-                    <button
-                      type="button btn-lg"
-                      class="btn btn-outline-success"
-                      data-bs-toggle="modal"
-                      data-bs-target="#log_in"
-                    >
+                    <button type="button btn-lg" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#log_in">
                       Log in
                     </button>
                   </div>
@@ -168,13 +140,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
+            <span><?php echo $_SESSION['e_code'] ?></span>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -330,3 +297,63 @@
     </div>
   </body>
 </html>
+
+<!-- PHP logic -->
+<!-- register login -->
+    <?php
+      session_start();
+      require_once("dbconnection.php");
+      error_reporting(E_ALL);
+      ini_set('display_errors', '1');
+
+      if (isset($_POST['login'])){
+        $good = true;
+
+        if(!preg_match("/^[a-Z0-9]{3,}$/m", $_POST['rlogin'])){
+				$good = false;
+				$_SESSION['e_code'] = "Your login needs to have 3 or more chars!";//user is wrong
+        }
+
+        else if(!preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/", $_POST['rpass'])){
+				$good = false;
+				$_SESSION['e_code'] = "This password is too easy.. 2 small and big letter and also 2 digits is minimum.";
+			}
+
+        else if(!preg_match("/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i", $_POST['remail'])){
+				$good = false;
+				$_SESSION['e_code'] = "Wrong syntax email!";
+			}
+
+
+      if($good){
+        mysqli_report(MYSQLI_REPORT_STRICT);
+        
+        try {
+          $connect = new mysqli($host, $user, $password, $database);
+
+          $temp1 = $_POST['login'];
+					$temp2 = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+					$temp3 = $_POST['email'];
+
+          $q = "INSERT INTO $usertable VALUES (NULL, '$temp1', '$temp2', '$temp3')";
+					$result = $connect->query($q);
+
+          if($connect -> connect_errno!=0 || !$result)
+						throw new Exception("");
+					else
+					{
+						$_SESSION['login'] = $_POST['login'];
+						$_SESSION['email'] = $_POST['email'];
+						header('Location: welcome.php');
+					}
+					
+					$connect->close();
+				}//try
+				catch(Exception $e)
+				{
+					$good = false;
+					$_SESSION['e_code'] = "Cannot connect to server!";
+				}
+      }
+    }
+?>
