@@ -46,50 +46,6 @@
       </div>
     </nav>
 
-    <!-- Modal Form Registration -->
-    <div class="modal fade" id="sign_in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title">Sign in</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-6">
-                  <form method="post">
-                    <input type="text" class="form-control" name="rlogin" placeholder="Username" aria-label="Username"/>
-                    <input type="password" class="form-control" name="rpass" placeholder="Password" aria-label="Surname"/>
-                    <input type="text" class="form-control" name="remail" placeholder="Email" aria-label="Email"/>
-
-                    <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
-                    <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
-                  </form>
-                </div>
-                
-                <div class="col-6">
-                  <form method="post">
-                    <input type="text" class="form-control" name="llogin" placeholder="Username" aria-label="Username"/>
-                    <input type="password" class="form-control" name="lpass" placeholder="Password" aria-label="Surname"/>
-
-                    <div id="emailHelp" class="form-text my-2">By log in you agree that we're the best!</div>
-                    <button type="button btn-lg" class="btn btn-outline-success">Log in</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <span><?php echo $_SESSION['e_code'] ?></span>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- End of Modal -->
-
     <!-- Slider -->
     <div id="slider" class="carousel slide" data-bs-interval="5000" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -188,3 +144,45 @@
 
   </body>
 </html>
+
+<!-- Modal Form Registration -->
+<div class="modal fade" id="sign_in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title">Sign in</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <form method="post">
+                <input type="text" class="form-control" name="rlogin" placeholder="Username" aria-label="Username"/>
+                <input type="password" class="form-control" name="rpass" placeholder="Password" aria-label="Surname"/>
+                <input type="text" class="form-control" name="remail" placeholder="Email" aria-label="Email"/>
+
+                <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
+                <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
+              </form>
+            </div>
+            
+            <div class="col-6">
+              <form method="post">
+                <input type="text" class="form-control" name="llogin" placeholder="Username" aria-label="Username"/>
+                <input type="password" class="form-control" name="lpass" placeholder="Password" aria-label="Surname"/>
+
+                <div id="emailHelp" class="form-text my-2">By log in you agree that we're the best!</div>
+                <button type="button btn-lg" class="btn btn-outline-success">Log in</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span><?php echo $_SESSION['e_code'] ?></span>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
