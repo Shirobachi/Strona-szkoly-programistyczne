@@ -56,31 +56,28 @@
           </div>
           <div class="modal-body">
             <div class="container-fluid">
-              <form method="post">
-                <div class="row">
-                  <div class="col p-3">
+              <div class="row">
+                <div class="col-6">
+                  <form method="post">
                     <input type="text" class="form-control" name="rlogin" placeholder="Username" aria-label="Username"/>
                     <input type="password" class="form-control" name="rpass" placeholder="Password" aria-label="Surname"/>
                     <input type="text" class="form-control" name="remail" placeholder="Email" aria-label="Email"/>
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                  </div>
 
-                  <div class="col p-3">
+                    <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
+                    <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
+                  </form>
+                </div>
+                
+                <div class="col-6">
+                  <form method="post">
                     <input type="text" class="form-control" name="llogin" placeholder="Username" aria-label="Username"/>
                     <input type="password" class="form-control" name="lpass" placeholder="Password" aria-label="Surname"/>
-                  </div>
 
+                    <div id="emailHelp" class="form-text my-2">By log in you agree that we're the best!</div>
+                    <button type="button btn-lg" class="btn btn-outline-success">Log in</button>
+                  </form>
                 </div>
-                <div class="row">
-                  <div class="col">
-                    <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
-                    </form>
-                  </div>
-                  <div class="col">
-                    <button type="button btn-lg" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#log_in">Log in</button>
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
