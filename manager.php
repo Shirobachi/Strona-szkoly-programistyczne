@@ -1,30 +1,29 @@
-<!-- PHP logic -->
 <?php
-  session_start();
-  echo isset($_SESSION['ID']);
-  
-  if(!isset($_SESSION['ID']))
-    session_destroy();
 
+  session_start();
+
+  ini_set('display_errors', '1');
+  error_reporting(E_ALL);
+  
   require_once("dbconnection.php");
   $connection = mysqli_connect($_server, $_login, $_pass, $_db);
-  if(!$connection)
-    $_SESSION['connectionError'] = true;
 
+  if(!$connection)
+    $_SESSION['code'] = 'connectionError';
   else{
-    // registration
+    //registration
     if(isset($_POST['rlogin'])){
       if(!preg_match("/^[a-zA-Z0-9]{3,50}$/m", $_POST['rlogin'])){
-        $_SESSION['wrongRLogin'] = true;
-      }
+        $_SESSION['code'] = 'wrongRLogin';
+      }//not good login
       
       elseif(!preg_match("/^[a-zA-Z0-9]{6,50}$/m", $_POST['rpass'])){
-        $_SESSION['wrongRPass'] = true;
-      }
+        $_SESSION['code'] = 'wrongRPass';
+      }//not good pass
       
       elseif(!preg_match("/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i", $_POST['rmail'])){
-        $_SESSION['wrongRMail'] = true;
-      }
+        $_SESSION['code'] = 'wrongRMail';
+      }//not good mail
 
       else{
         $login = $_POST['rlogin'];
@@ -33,51 +32,54 @@
 
         $q = "SELECT login FROM _Users WHERE login = '$login' or mail = '$mail'";
         $result = mysqli_query($connection, $q);
-        
-        if(mysqli_num_rows($result) >= 1)
-        {
+
+        //someone alredy registred with same login or mail
+        if(mysqli_num_rows($result) == 1){
           $row = mysqli_fetch_assoc($result);
+
           if($row['login'] == $login)
-            $_SESSION['addingErrorLogin'] = true;
+            $_SESSION['code'] = 'addingErrorLogin';
           else
-            $_SESSION['addingErrorMail'] = true;
-        }
-        else {
+            $_SESSION['code'] = 'addingErrorMail';
+        }//if some same login/mail
+        else{
           $q = "INSERT INTO _Users VALUES (NULL, '$login', '$pass', '$mail', 'u')";
           $query = mysqli_query($connection, $q);
 
           if($query)
-            $_SESSION['registerSuccess'] = true;
+            $_SESSION['code'] = 'registerSuccess';
           else
-            $_SESSION['registerFailure'] = true;
-          }
-        }
+            $_SESSION['code'] = 'registerFailure';
+        }//else (adding new user to DB)
       }
-    
-    //login
-    if(isset($_POST['llogin'])){
-      if(preg_match("/^[a-zA-Z0-9]{3,50}$/m", $_POST['llogin']) and preg_match("/^[a-zA-Z0-9]{6,50}$/m", $_POST['lpass'])){
+    }//if isset rlogin
 
+    //loginning in
+    if(isset($_POST['llogin'])){
+      //if login and pass has not danger chars (and fit to login and pass pattern)
+      if(preg_match("/^[a-zA-Z0-9]{3,50}$/m", $_POST['llogin']) and preg_match("/^[a-zA-Z0-9]{6,50}$/m", $_POST['lpass'])){
         $login = $_POST['llogin'];
         $pass = $_POST['lpass'];
-        
+
         $q = "SELECT * FROM _Users WHERE login = '$login'";
         $query = mysqli_query($connection, $q);
         $row = mysqli_fetch_assoc($query);
-      
-        if(mysqli_num_rows($query) != 1 or !password_verify($pass, $row['pass'])){
-          $_SESSION['loginFailure'] = true;
-        }
+
+        //if returned no 1 record(s) (so 0 or > 1 (what should not happened)) or pass not match to hash from db
+        if(mysqli_num_rows($query) != 1 or !password_verify($pass, $row['pass']))
+          $_SESSION['code'] = 'loginFailure';
         else{
-          $_SESSION['loginSuccess'] = true;
+          $_SESSION['code'] = 'loginSuccess';
           $_SESSION['ID'] = $row['ID'];
           // TODO redirect to page after loged in
         }
+      }//if good login and pass
+      //if some put some danger chars in login/pass field
+      else {
+        $_SESSION['code'] = 'loginFailure';
       }
-      else{
-        $_SESSION['loginWrongInput'] = true;
-      }
-    }
-  }
-  mysqli_close($connection);
+    }//if isset llogin
+
+    mysqli_close($connection);
+  }//if connection is good
 ?>

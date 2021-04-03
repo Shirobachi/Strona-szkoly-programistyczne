@@ -3,98 +3,77 @@
   <head>
     <meta charset="utf-8" />
     <title>Kursy dla programistów</title>
-
-    <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Line required to have well working responsivnes -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-
-    <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"/>
-
-    <!-- Add js and jqery -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <?php require_once("manager.php"); ?>
+    <?php require_once("manager.php"); require_once("functions.php"); ?>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
-
-
         <a class="navbar-brand" href="#">
           <i class="h1 bi bi-code-square"></i>
         </a>
         
       <!-- PHP notifications below -->
       <?php
-        if($_SESSION['connectionError'])
-        echo '
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Connection failure!</strong> ' . mysqli_connect_error() . '
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          ';
+        if(isset($_SESSION['code'])){
+          $code = $_SESSION['code'];
+          $notificationType = array(
+            'connectionError' => 'danger', 
+            'wrongRLogin' => 'warning', 
+            'wrongRPass' => 'warning', 
+            'wrongRMail' => 'warning', 
+            'addingErrorLogin' => 'warning', 
+            'addingErrorMail' => 'warning', 
+            'registerSuccess' => 'success', 
+            'registerFailure' => 'warning', 
+            'loginFailure' => 'warning', 
+            'loginSuccess' => 'success', 
+          );
+          
+          $notificationTitle = array(
+            'connectionError' => 'Connection failure!', 
+            'wrongRLogin' => 'Wrong login input!', 
+            'wrongRPass' => 'Wrong password input!', 
+            'wrongRMail' => 'Wrong mail input!', 
+            'addingErrorLogin' => 'Login is not free!', 
+            'addingErrorMail' => 'Mail is not free!', 
+            'registerSuccess' => 'New account made!', 
+            'registerFailure' => 'Registration failure!', 
+            'loginFailure' => 'Login failure!', 
+            'loginSuccess' => 'Login success!', 
+          );
 
-        elseif($_SESSION['addingErrorMail'] or $_SESSION['addingErrorLogin'])
-        echo '
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Registration failure!</strong> Sorry but some with same login/mail is already registrated!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          ';
+          $notificationDesc = array(
+            'connectionError' => 'We cannot connct to database, we working on it!', 
+            'wrongRLogin' => 'Your login can consist of letters and/or digits b/w 3 and 50 chars', 
+            'wrongRPass' => 'Your password should has b/w 6 and 50 chars and consist of letters and/or digits', 
+            'wrongRMail' => 'This is not match to email pattern', 
+            'addingErrorLogin' => 'This login belongs to someone else', 
+            'addingErrorMail' => 'It looks like this mail is in our database, did you forgot you password?', 
+            'registerSuccess' => 'Now you are free to log in!', 
+            'registerFailure' => 'We stuggling with goblins who attaching our servers!', 
+            'loginFailure' => 'This credentials not match to any record!', 
+            'loginSuccess' => 'Now you are logged in!', 
+          );
 
-        elseif($_SESSION['registerSuccess'])
-        echo '
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>You got it!</strong> Your account is ready to use! Go log in now!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          echo "
+          <div class='alert alert-".$notificationType["$code"]." alert-dismissible fade show' role='alert'>
+            <strong>".$notificationTitle["$code"]."</strong> ".$notificationDesc["$code"]."
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
           </div>
-          ';
+          ";
 
-        elseif($_SESSION['registerFailure'])
-        echo '
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Registration failure!</strong> We stuggling with goblins who attaching our servers!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          ';
-
-        elseif($_SESSION['wrongRLogin'] or $_SESSION['wrongRPass'] or $_SESSION['wrongRMail'])
-        echo '
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Some field are incorrect!</strong> Fill form again!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          ';
-
-        elseif($_SESSION['loginFailure'] or $_SESSION['loginWrongInput'])
-        echo '
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Login incorrect!</strong> Provided login and password not matches, try again!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          ';
-
-        elseif($_SESSION['logout'])
-        echo '
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Loged out!</strong> Thanks for loged out, just come back ;)
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          ';
-
-        elseif($_SESSION['loginSuccess'])
-        echo '
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Loged in success!</strong> You\'re in! ;)
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          ';
+          if($_SESSION['code'] == 'loginSuccess')
+            unset($_SESSION['code']);
+        }
+        echo ">>" . $_SESSION['code'] . "<<" . isset($_POST['rlogin']) . "||";
       ?>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#smallNavbar">
@@ -235,9 +214,9 @@
           <div class="row">
             <div class="col-6">
               <form method="post">
-                <input required type="text" class="form-control <?php echo (isset($_SESSION['wrongRLogin']) or $_SESSION['addingErrorLogin']) ? 'is-invalid' : ((isset($_POST['rlogin']) and !$_SESSION['registerSuccess']) ? "is-valid" : "") ?>" name="rlogin" placeholder="Username" value="<?php echo (isset($_POST['rlogin']) and !$_SESSION['registerSuccess']) ? $_POST['rlogin'] : "" ?>"/>
-                <input required type="password" class="form-control <?php echo isset($_SESSION['wrongRPass']) ? 'is-invalid' : "" ?>" name="rpass" placeholder="Password"/>
-                <input required type="text" class="form-control <?php echo (isset($_SESSION['wrongRMail']) or $_SESSION['addingErrorMail']) ? 'is-invalid' : ((isset($_POST['rmail']) and !$_SESSION['registerSuccess']) ? "is-valid" : "") ?>" name="rmail" placeholder="Email"  value="<?php echo (isset($_POST['rmail']) and !$_SESSION['registerSuccess']) ? $_POST['rmail'] : "" ?>"/>
+                <input required type="text" class="form-control <?php classValidator('rlogin')?>" name="rlogin" placeholder="Username" value="<?php echo (isset($_POST['rlogin']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rlogin'] : "" ?>"/>
+                <input required type="password" class="form-control <?php classValidator('rpass')?>" name="rpass" placeholder="Password"/>
+                <input required type="text" class="form-control <?php classValidator('rmail')?>" name="rmail" placeholder="Email"  value="<?php echo (isset($_POST['rmail']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rmail'] : "" ?>"/>
 
                 <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
                 <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
@@ -246,7 +225,7 @@
             
             <div class="col-6">
               <form method="post">
-                <input required type="text" class="form-control" name="llogin" placeholder="Username" value="<?php echo isset($_POST['llogin']) ? $_POST['llogin'] : "" ?>"/>
+                <input required type="text" class="form-control <?php classValidator('llogin') ?>" name="llogin" placeholder="Username" value="<?php echo isset($_POST['llogin']) ? $_POST['llogin'] : "" ?>"/>
                 <input required type="password" class="form-control" name="lpass" placeholder="Password"/>
 
                 <div id="emailHelp" class="form-text my-2">By log-in you agree that we're the best!</div>
