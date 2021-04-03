@@ -19,27 +19,103 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <?php require_once("manager.php"); ?>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
+
 
         <a class="navbar-brand" href="#">
           <i class="h1 bi bi-code-square"></i>
         </a>
         
+      <!-- PHP notifications below -->
+      <?php
+        if($_SESSION['connectionError'])
+        echo '
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Connection failure!</strong> ' . mysqli_connect_error() . '
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+
+        elseif($_SESSION['addingErrorMail'] or $_SESSION['addingErrorLogin'])
+        echo '
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Registration failure!</strong> Sorry but some with same login/mail is already registrated!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+
+        elseif($_SESSION['registerSuccess'])
+        echo '
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>You got it!</strong> Your account is ready to use! Go log in now!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+
+        elseif($_SESSION['registerFailure'])
+        echo '
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Registration failure!</strong> We stuggling with goblins who attaching our servers!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+
+        elseif($_SESSION['wrongRLogin'] or $_SESSION['wrongRPass'] or $_SESSION['wrongRMail'])
+        echo '
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Some field are incorrect!</strong> Fill form again!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+
+        elseif($_SESSION['loginFailure'] or $_SESSION['loginWrongInput'])
+        echo '
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Login incorrect!</strong> Provided login and password not matches, try again!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+
+        elseif($_SESSION['logout'])
+        echo '
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Loged out!</strong> Thanks for loged out, just come back ;)
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+
+        elseif($_SESSION['loginSuccess'])
+        echo '
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Loged in success!</strong> You\'re in! ;)
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+      ?>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#smallNavbar">
           <span class="bi-menu-button"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="smallNavbar">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+            <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link disabled">About</a></li>
             <li class="nav-item"><a href="#" class="nav-link disabled">Offer</a></li>
             <li class="nav-item"><a href="#" class="nav-link disabled">Team</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
             <li class="nav-item">
-              <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign_in">Sign in</button>
+              
+              <?php
+                if(isset($_SESSION['ID']))
+                  echo '<a href="logout.php"><button type="button" class="btn btn-success btn-lg">Log out!</button></a>';
+                else
+                  echo '<button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign_in">Sign in</button>';
+              ?>
             </li>
           </ul>
         </div>
@@ -145,7 +221,8 @@
   </body>
 </html>
 
-<!-- Modal Form Registration -->
+<!-- Modal Registration -->
+<!-- Modal login -->
 <div class="modal fade" id="sign_in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
@@ -158,9 +235,9 @@
           <div class="row">
             <div class="col-6">
               <form method="post">
-                <input type="text" class="form-control" name="rlogin" placeholder="Username" aria-label="Username"/>
-                <input type="password" class="form-control" name="rpass" placeholder="Password" aria-label="Surname"/>
-                <input type="text" class="form-control" name="remail" placeholder="Email" aria-label="Email"/>
+                <input required type="text" class="form-control <?php echo (isset($_SESSION['wrongRLogin']) or $_SESSION['addingErrorLogin']) ? 'is-invalid' : ((isset($_POST['rlogin']) and !$_SESSION['registerSuccess']) ? "is-valid" : "") ?>" name="rlogin" placeholder="Username" value="<?php echo (isset($_POST['rlogin']) and !$_SESSION['registerSuccess']) ? $_POST['rlogin'] : "" ?>"/>
+                <input required type="password" class="form-control <?php echo isset($_SESSION['wrongRPass']) ? 'is-invalid' : "" ?>" name="rpass" placeholder="Password"/>
+                <input required type="text" class="form-control <?php echo (isset($_SESSION['wrongRMail']) or $_SESSION['addingErrorMail']) ? 'is-invalid' : ((isset($_POST['rmail']) and !$_SESSION['registerSuccess']) ? "is-valid" : "") ?>" name="rmail" placeholder="Email"  value="<?php echo (isset($_POST['rmail']) and !$_SESSION['registerSuccess']) ? $_POST['rmail'] : "" ?>"/>
 
                 <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
                 <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
@@ -169,10 +246,10 @@
             
             <div class="col-6">
               <form method="post">
-                <input type="text" class="form-control" name="llogin" placeholder="Username" aria-label="Username"/>
-                <input type="password" class="form-control" name="lpass" placeholder="Password" aria-label="Surname"/>
+                <input required type="text" class="form-control" name="llogin" placeholder="Username" value="<?php echo isset($_POST['llogin']) ? $_POST['llogin'] : "" ?>"/>
+                <input required type="password" class="form-control" name="lpass" placeholder="Password"/>
 
-                <div id="emailHelp" class="form-text my-2">By log in you agree that we're the best!</div>
+                <div id="emailHelp" class="form-text my-2">By log-in you agree that we're the best!</div>
                 <button type="button btn-lg" class="btn btn-outline-success">Log in</button>
               </form>
             </div>
@@ -180,7 +257,6 @@
         </div>
       </div>
       <div class="modal-footer">
-        <span><?php echo $_SESSION['e_code'] ?></span>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
