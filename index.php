@@ -11,9 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <?php require_once("manager.php"); require_once("functions.php"); ?>
-    <?php require_once("common/navbar.php"); ?>
-    <?php require_once("common/slider.php"); ?>
+    <?php require_once("_navbar.php"); ?>
+    <?php require_once("_slider.php"); ?>
 
     <!-- 3 column section -->
     <div class="container-fluid">
@@ -46,7 +45,7 @@
         <div class="col-md-12"></div>
       </div>
 
-    <?php require_once("common/footer.php"); ?>
+    <?php require_once("_footer.php"); ?>
 
     <!-- Enable tultips -->
     <script>
@@ -58,45 +57,3 @@
 
   </body>
 </html>
-
-<!-- Modal Registration -->
-<!-- Modal login -->
-<div class="modal fade" id="sign_in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title">Sign in</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-6">
-              <form method="post">
-                <input required type="text" class="form-control <?php classValidator('rlogin')?>" name="rlogin" placeholder="Username" value="<?php echo (isset($_POST['rlogin']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rlogin'] : "" ?>"/>
-                <input required type="password" class="form-control <?php classValidator('rpass')?>" name="rpass" placeholder="Password"/>
-                <input required type="text" class="form-control <?php classValidator('rmail')?>" name="rmail" placeholder="Email"  value="<?php echo (isset($_POST['rmail']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rmail'] : "" ?>"/>
-
-                <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
-                <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
-              </form>
-            </div>
-            
-            <div class="col-6">
-              <form method="post">
-                <input required type="text" class="form-control <?php classValidator('llogin') ?>" name="llogin" placeholder="Username" value="<?php echo isset($_POST['llogin']) ? $_POST['llogin'] : "" ?>"/>
-                <input required type="password" class="form-control" name="lpass" placeholder="Password"/>
-
-                <div id="emailHelp" class="form-text my-2">By log-in you agree that we're the best!</div>
-                <button type="button btn-lg" class="btn btn-outline-success">Log in</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
