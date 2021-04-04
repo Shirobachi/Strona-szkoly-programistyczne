@@ -30,16 +30,17 @@
   }
 
   function navbarActiv($name){
+    $req_uri = $_SERVER['REQUEST_URI'];
+    $path = substr($req_uri,0,strrpos($req_uri,'/'));
     $file = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 
-    if($name == 'home' and ($file == 'index.php' or $file == ''))
-      echo 'active';
+    $wholePath = $path . '/' . $file;
 
-    if($name == 'account' and ($file == 'account.php'))
-      echo 'active';
-
-    if($name == 'account-changedata' and ($file == 'account.php'))
-      echo 'active';
+    if($name == 'home' and $wholePath == '/pages/index/index.php')
+    echo 'active';
+    
+    elseif($name == 'account' and $wholePath == '/pages/account/index.php')
+    echo 'active';
   }
 
 ?>
