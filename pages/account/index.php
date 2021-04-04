@@ -2,35 +2,55 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Kursy dla programistów</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../sources/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Kursy dla programistów</title>
   </head>
   <body class="bg-dark text-light">
-    <?php require_once("_navbar.php"); 
-      if(!isset($_SESSION['ID']))
-        header('Location: index.php');
-    ?>
 
-    <!-- 3 column section -->
-    <div class="container-fluid">
-      <div class="row text-center padding bg-light">
+    <?php require("../common/navbar.php"); ?>
+    <?php //include("../common/slider.php"); ?>
 
-        <?php require('common/account/leftmenu.php'); ?>
+    <div class="container-fluid bg-light text-dark">
+      <div class="row text-center padding">
+
+        <?php require('leftmenu.php'); ?>
 
         <div class="col-12 col-md-9">
 
-        
+          <?php
+
+            require_once(__DIR__ . "/../../modules/dbconnection.php");
+            $connection = mysqli_connect($_server, $_login, $_pass, $_db);
+
+            if(!$connection)
+              $_SESSION['code'] = 'connectionError';
+            else{
+              $ID = $_SESSION['ID'];
+
+              $q = "SELECT * FROM _Users WHERE ID = '$ID'";
+              $result = mysqli_query($connection, $q);
+              $row = mysqli_fetch_assoc($result);
+
+              $login = $row['login'];
+              $mail = $row['mail'];
+              $role = $row['role'];
+
+              mysqli_close($connection);
+            }
+            ?>
+
+            <h1 class="mt-2">Hello, <?php echo $login ?></h1>
 
         </div>
 
       </div>
 
-    <?php require_once("_footer.php"); ?>
+      <?php include("../common/footer.php"); ?>
+      
+    </div>
 
     <!-- Enable tultips -->
     <script>
@@ -39,6 +59,5 @@
         return new bootstrap.Tooltip(tooltipTriggerEl)
       })
     </script>
-
   </body>
 </html>

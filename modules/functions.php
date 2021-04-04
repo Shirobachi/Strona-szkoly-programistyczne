@@ -41,6 +41,13 @@
     
     elseif($name == 'account' and $wholePath == '/pages/account/index.php')
     echo 'active';
+
+    elseif($name == 'account-index'){
+      if($wholePath == '/pages/account/index.php')
+        echo 'btn-outline-success';
+      else
+        echo 'btn-success';
+    }
   }
 
 ?>

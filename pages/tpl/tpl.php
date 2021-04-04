@@ -13,7 +13,6 @@
     <?php require("../common/navbar.php"); ?>
     <?php //include("../common/slider.php"); ?>
 
-    <!-- 3 column section -->
     <div class="container-fluid">
       
       <?php include("../common/footer.php"); ?>
