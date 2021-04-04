@@ -28,4 +28,18 @@
       }
     }
   }
+
+  function navbarActiv($name){
+    $file = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
+
+    if($name == 'home' and ($file == 'index.php' or $file == ''))
+      echo 'active';
+
+    if($name == 'account' and ($file == 'account.php'))
+      echo 'active';
+
+    if($name == 'account-changedata' and ($file == 'account.php'))
+      echo 'active';
+  }
+
 ?>

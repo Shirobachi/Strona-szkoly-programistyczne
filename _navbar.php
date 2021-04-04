@@ -1,7 +1,9 @@
+<?php require_once("manager.php"); require_once("functions.php"); ?>
+
 <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
           <i class="h1 bi bi-code-square"></i>
         </a>
         
@@ -58,30 +60,69 @@
           if($_SESSION['code'] == 'loginSuccess')
             unset($_SESSION['code']);
         }
-        echo ">>" . $_SESSION['code'] . "<<" . isset($_POST['rlogin']) . "||";
       ?>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#smallNavbar">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="">
           <span class="bi-menu-button"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="smallNavbar">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link disabled">About</a></li>
-            <li class="nav-item"><a href="#" class="nav-link disabled">Offer</a></li>
-            <li class="nav-item"><a href="#" class="nav-link disabled">Team</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-            <li class="nav-item">
-              
-              <?php
+            <li class="nav-item"><a href="index.php" class="nav-link <?php navbarActiv('home'); ?>">Home</a></li>
+              <?php 
+                if(isset($_SESSION['ID'])){
+                  echo '<li class="nav-item"><a href="account.php" class="nav-link ';
+                  navbarActiv("account");
+                  echo '">Account</a></li>';
+                }
                 if(isset($_SESSION['ID']))
-                  echo '<a href="logout.php"><button type="button" class="btn btn-success btn-lg">Log out!</button></a>';
+                  echo '<li class="nav-item"><a href="logout.php"><button type="button" class="btn btn-success btn-lg">Log out!</button></a></li>';
                 else
                   echo '<button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign_in">Sign in</button>';
               ?>
-            </li>
           </ul>
         </div>
       </div>
     </nav>
+    
+<!-- Modal Registration -->
+<!-- Modal login -->
+<div class="modal fade" id="sign_in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title">Sign in</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <form method="post">
+                <input required type="text" class="form-control <?php classValidator('rlogin')?>" name="rlogin" placeholder="Username" value="<?php echo (isset($_POST['rlogin']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rlogin'] : "" ?>"/>
+                <input required type="password" class="form-control <?php classValidator('rpass')?>" name="rpass" placeholder="Password"/>
+                <input required type="text" class="form-control <?php classValidator('rmail')?>" name="rmail" placeholder="Email"  value="<?php echo (isset($_POST['rmail']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rmail'] : "" ?>"/>
+
+                <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
+                <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
+              </form>
+            </div>
+            
+            <div class="col-6">
+              <form method="post">
+                <input required type="text" class="form-control <?php classValidator('llogin') ?>" name="llogin" placeholder="Username" value="<?php echo isset($_POST['llogin']) ? $_POST['llogin'] : "" ?>"/>
+                <input required type="password" class="form-control" name="lpass" placeholder="Password"/>
+
+                <div id="emailHelp" class="form-text my-2">By log-in you agree that we're the best!</div>
+                <button type="button btn-lg" class="btn btn-outline-success">Log in</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
