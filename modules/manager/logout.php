@@ -6,6 +6,6 @@
   session_start();
   $_SESSION['logout'] = true;
 
-  header('Location: index.php');
+  header('Location: ../../pages/index/index.php');
 
 ?>

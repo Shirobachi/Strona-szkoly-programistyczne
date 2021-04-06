@@ -79,7 +79,7 @@
                   echo '">Account</a></li>';
                 }
                 if(isset($_SESSION['ID']))
-                  echo '<li class="nav-item"><a href="logout.php"><button type="button" class="btn btn-success btn-lg">Log out!</button></a></li>';
+                  echo '<li class="nav-item"><a href="../../modules/manager/logout.php"><button type="button" class="btn btn-success btn-lg">Log out!</button></a></li>';
                 else
                   echo '<button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign_in">Sign in</button>';
               ?>
