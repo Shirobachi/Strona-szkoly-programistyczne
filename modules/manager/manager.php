@@ -1,8 +1,6 @@
 <?php
 
   session_start();
-  if(!isset($_SESSION['ID']))
-    session_unset();
 
   ini_set('display_errors', '1');
   error_reporting(E_ALL);

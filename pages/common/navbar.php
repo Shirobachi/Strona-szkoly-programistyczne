@@ -63,7 +63,6 @@
             </div>
             ";
 
-            if($_SESSION['code'] == 'loginSuccess')
               unset($_SESSION['code']);
           }
         ?>
