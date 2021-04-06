@@ -55,7 +55,7 @@
     }//if isset rlogin
 
     //loginning in
-    if(isset($_POST['llogin'])){
+    elseif(isset($_POST['llogin'])){
       //if login and pass has not danger chars (and fit to login and pass pattern)
       if(preg_match("/^[a-zA-Z0-9]{3,50}$/m", $_POST['llogin']) and preg_match("/^[a-zA-Z0-9]{6,50}$/m", $_POST['lpass'])){
         $login = $_POST['llogin'];

@@ -63,7 +63,7 @@
             </div>
             ";
 
-              unset($_SESSION['code']);
+            unset($_SESSION['code']);
           }
         ?>
 
@@ -106,7 +106,7 @@
               <form method="post">
                 <input required type="text" class="form-control <?php classValidator('rlogin')?>" name="rlogin" placeholder="Username" value="<?php echo (isset($_POST['rlogin']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rlogin'] : "" ?>"/>
                 <input required type="password" class="form-control <?php classValidator('rpass')?>" name="rpass" placeholder="Password"/>
-                <input required type="text" class="form-control <?php classValidator('rmail')?>" name="rmail" placeholder="Email"  value="<?php echo (isset($_POST['rmail']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rmail'] : "" ?>"/>
+                <input required type="email" class="form-control <?php classValidator('rmail')?>" name="rmail" placeholder="Email"  value="<?php echo (isset($_POST['rmail']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rmail'] : "" ?>"/>
 
                 <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
                 <button type="button btn-lg" class="btn btn-outline-success">Create account</button>

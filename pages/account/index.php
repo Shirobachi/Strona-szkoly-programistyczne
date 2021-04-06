@@ -33,30 +33,8 @@
 
           <?php
 
-            require_once(__DIR__ . "/../../modules/dbconnection.php");
-            $connection = mysqli_connect($_server, $_login, $_pass, $_db);
-
-            if(!$connection)
-              $_SESSION['code'] = 'connectionError';
-            else{
-              $ID = $_SESSION['ID'];
-
-              $q = "SELECT * FROM _Users WHERE ID = '$ID'";
-              $result = mysqli_query($connection, $q);
-              $row = mysqli_fetch_assoc($result);
-
-              $login = $row['login'];
-              $mail = $row['mail'];
-              $role = $row['role'];
-
-              mysqli_close($connection);
-            }
-            ?>
-
-            <h1 class="mt-2">Hello, <?php echo $login ?></h1>
-
+          </form>
         </div>
-
       </div>
 
       <?php include("../common/footer.php"); ?>
