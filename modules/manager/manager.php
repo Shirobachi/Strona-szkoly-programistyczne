@@ -1,7 +1,7 @@
 <?php
 
   session_start();
-
+  
   ini_set('display_errors', '1');
   error_reporting(E_ALL);
   
@@ -79,6 +79,18 @@
         $_SESSION['code'] = 'loginFailure';
       }
     }//if isset llogin
+
+    elseif(isset($_SESSION['ID'])){
+      $ID = $_SESSION['ID'];
+      
+      $q = "SELECT * FROM _Users WHERE ID = '$ID'";
+      $result = mysqli_query($connection, $q);
+      $row = mysqli_fetch_assoc($result);
+
+      $login = $row['login'];
+      $mail = $row['mail'];
+      $role = $row['role'];
+    }//isset(SESSION.id)
 
     mysqli_close($connection);
   }//if connection is good
