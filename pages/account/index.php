@@ -10,6 +10,17 @@
   </head>
   <body class="bg-dark text-light">
 
+  <?php
+    session_start();
+
+    if(!isset($_SESSION['ID'])){
+      $_SESSION['code'] = 'notLoggedIn';
+      echo $_SESSION['code'];
+      header('Location: ../index/index.php');
+      die();
+    }
+
+    ?>
     <?php require("../common/navbar.php"); ?>
     <?php //include("../common/slider.php"); ?>
 
