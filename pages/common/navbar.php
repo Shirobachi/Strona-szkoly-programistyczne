@@ -22,7 +22,6 @@
               'addingErrorLogin' => 'warning', 
               'addingErrorMail' => 'warning', 
               'registerSuccess' => 'success', 
-              'registerFailure' => 'warning', 
               'loginFailure' => 'warning', 
               'loginSuccess' => 'success', 
               'notLoggedIn' => 'warning', 
@@ -37,7 +36,6 @@
               'addingErrorLogin' => 'Login is not free!', 
               'addingErrorMail' => 'Mail is not free!', 
               'registerSuccess' => 'New account made!', 
-              'registerFailure' => 'Registration failure!', 
               'loginFailure' => 'Login failure!', 
               'loginSuccess' => 'Login success!', 
               'notLoggedIn' => 'You are not logged in!', 
@@ -45,14 +43,13 @@
             );
 
             $notificationDesc = array(
-              'connectionError' => 'We cannot connct to database, we working on it!', 
+              'connectionError' => 'We stuggling with goblins who attaching our servers!', 
               'wrongRLogin' => 'Your login can consist of letters and/or digits b/w 3 and 50 chars', 
               'wrongRPass' => 'Your password should has b/w 6 and 50 chars and consist of letters and/or digits', 
               'wrongRMail' => 'This is not match to email pattern', 
               'addingErrorLogin' => 'This login belongs to someone else', 
               'addingErrorMail' => 'It looks like this mail is in our database, did you forgot you password?', 
               'registerSuccess' => 'Now you are free to log in!', 
-              'registerFailure' => 'We stuggling with goblins who attaching our servers!', 
               'loginFailure' => 'This credentials not match to any record!', 
               'loginSuccess' => 'Now you are logged in!', 
               'notLoggedIn' => 'To see that page you need to be logged in!', 
