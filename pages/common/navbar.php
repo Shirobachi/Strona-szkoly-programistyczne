@@ -26,6 +26,7 @@
               'loginFailure' => 'warning', 
               'loginSuccess' => 'success', 
               'notLoggedIn' => 'warning', 
+              'logout' => 'success', 
             );
             
             $notificationTitle = array(
@@ -40,6 +41,7 @@
               'loginFailure' => 'Login failure!', 
               'loginSuccess' => 'Login success!', 
               'notLoggedIn' => 'You are not logged in!', 
+              'logout' => 'Logged out!', 
             );
 
             $notificationDesc = array(
@@ -54,6 +56,7 @@
               'loginFailure' => 'This credentials not match to any record!', 
               'loginSuccess' => 'Now you are logged in!', 
               'notLoggedIn' => 'To see that page you need to be logged in!', 
+              'logout' => 'We already missed you!', 
             );
 
             echo "

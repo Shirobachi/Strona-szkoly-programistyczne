@@ -4,7 +4,7 @@
   session_destroy();
   
   session_start();
-  $_SESSION['logout'] = true;
+  $_SESSION['code'] = 'logout';
 
   header('Location: ../../pages/index/index.php');
 
