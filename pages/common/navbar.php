@@ -22,7 +22,7 @@
                 <input required type="email" class="form-control <?php classValidator('rmail')?>" name="rmail" placeholder="Email"  value="<?php echo (isset($_POST['rmail']) and $_SESSION['code'] != 'registerSuccess') ? $_POST['rmail'] : "" ?>"/>
 
                 <div id="emailHelp" class="form-text my-2">We'll never share your email with anyone else.</div>
-                <button type="button btn-lg" class="btn btn-outline-success">Create account</button>
+                <input type="submit" class="btn btn-lg btn-outline-success" value="Create account"/>
               </form>
             </div>
             
@@ -32,7 +32,7 @@
                 <input required type="password" class="form-control" name="lpass" placeholder="Password"/>
 
                 <div id="emailHelp" class="form-text my-2">By log-in you agree that we're the best!</div>
-                <button type="button btn-lg" class="btn btn-outline-success">Log in</button>
+                <input type="submit" class="btn btn-lg btn-outline-success" value="Log in"/>
               </form>
             </div>
           </div>
