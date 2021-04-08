@@ -3,8 +3,7 @@
   require_once(__DIR__ . "/../../modules/functions.php"); 
 ?>
     
-<!-- Modal Registration -->
-<!-- Modal login -->
+<!-- Modal Registration and login -->
 <div class="modal fade" id="sign_in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
@@ -40,6 +39,32 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal change personal information -->
+<div class="modal fade" id="changeInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeInfoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changeInfoLabel">Change personal information!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form id="changeInfoForm" method="post" action="">
+          <input class="form-control" type="text" disabled value="<?php echo $login; ?>">
+          <input class="form-control" name="cmail" type="email" placeholder="New mail" value="<?php echo $mail; ?>">
+          <input class="form-control" name="cnewPass" type="password" placeholder="New password" data-bs-toggle="tooltip" data-bs-placement="top" title="Keep empty if not wish to change">
+          <input class="form-control" name="coldPass" type="password" placeholder="Old password">
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" form="changeInfoForm" class="btn btn-primary">Change</button>
       </div>
     </div>
   </div>
@@ -117,12 +142,7 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a href="../index/index.php" class="nav-link <?php navbarActiv('home'); ?>">Home</a></li>
             <li class="nav-item"><a href="../contact/index.php" class="nav-link <?php navbarActiv('contact'); ?>">Contact</a></li>
-              <?php 
-                if(isset($_SESSION['ID'])){
-                  echo '<li class="nav-item"><a href="../account/index.php" class="nav-link ';
-                  navbarActiv("account");
-                  echo '">Account</a></li>';
-                }
+              <?php
                 if(isset($_SESSION['ID']))
                   echo "
                   <li class='nav-item'>
@@ -132,7 +152,7 @@
                       </a>
 
                       <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='userMenu'>
-                        <li><a class='dropdown-item' data-bs-toggle='modal' data-bs-target='#sign_in'>Change personal information</a></li>
+                        <li><a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#changeInfo'>Change personal information</a></li>
                         <li><a class='dropdown-item' href='#'>Change personal information</a></li>
                         <div class='dropdown-divider'></div>
                         <a class='dropdown-item' href='../../modules/manager/logout.php'>Logout!</a>
