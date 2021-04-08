@@ -34,7 +34,7 @@
         $result = mysqli_query($connection, $q);
 
         //someone alredy registred with same login or mail
-        if(mysqli_num_rows($result) == 1){
+        if(mysqli_num_rows($result) >= 1){
           $row = mysqli_fetch_assoc($result);
 
           if($row['login'] == $login)
