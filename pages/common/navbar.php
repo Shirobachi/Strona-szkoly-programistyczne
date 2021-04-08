@@ -1,5 +1,5 @@
 <?php 
-  require_once(__DIR__ . "/../../modules/manager/manager.php"); 
+  require_once(__DIR__ . "/../../modules/manager.php"); 
   require_once(__DIR__ . "/../../modules/functions.php"); 
 ?>
     
@@ -155,7 +155,7 @@
                         <li><a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#changeInfo'>Change personal information</a></li>
                         <li><a class='dropdown-item' href='#'>Change personal information</a></li>
                         <div class='dropdown-divider'></div>
-                        <a class='dropdown-item' href='../../modules/manager/logout.php'>Logout!</a>
+                        <a class='dropdown-item' href='../../modules/logout.php'>Logout!</a>
                       </ul>
                     </div>
                   </li>
