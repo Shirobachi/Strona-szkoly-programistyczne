@@ -36,18 +36,12 @@
 
     $wholePath = $path . '/' . $file;
 
-    if($name == 'home' and $wholePath == '/pages/index/index.php')
-    echo 'active';
+    if($name == 'home' and strrpos($wholePath, '/pages/index/index.php') !== false)
+      echo 'active';
     
-    elseif($name == 'account' and $wholePath == '/pages/account/index.php')
-    echo 'active';
-
-    elseif($name == 'account-index'){
-      if($wholePath == '/pages/account/index.php')
-        echo 'btn-outline-success';
-      else
-        echo 'btn-success';
-    }
+    elseif ($name =='contact' and strpos($wholePath, '/pages/contact/index.php') !== false)
+      echo 'active';
+    
   }
 
 ?>

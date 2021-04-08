@@ -116,6 +116,7 @@
         <div class="collapse navbar-collapse" id="smallNavbar">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a href="../index/index.php" class="nav-link <?php navbarActiv('home'); ?>">Home</a></li>
+            <li class="nav-item"><a href="../contact/index.php" class="nav-link <?php navbarActiv('contact'); ?>">Contact</a></li>
               <?php 
                 if(isset($_SESSION['ID'])){
                   echo '<li class="nav-item"><a href="../account/index.php" class="nav-link ';
