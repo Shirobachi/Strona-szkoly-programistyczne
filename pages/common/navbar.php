@@ -124,10 +124,30 @@
                   echo '">Account</a></li>';
                 }
                 if(isset($_SESSION['ID']))
-                  echo '<li class="nav-item"><a href="../../modules/manager/logout.php"><button type="button" class="btn btn-success btn-lg">Log out!</button></a></li>';
+                  echo "
+                  <li class='nav-item'>
+                    <div class='mt-1 dropdown'>
+                      <a class='btn btn-success btn-lg dropdown-toggle' role='button' id='userMenu' data-bs-toggle='dropdown'>
+                        Hi, $login
+                      </a>
+
+                      <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='userMenu'>
+                        <li><a class='dropdown-item' data-bs-toggle='modal' data-bs-target='#sign_in'>Change personal information</a></li>
+                        <li><a class='dropdown-item' href='#'>Change personal information</a></li>
+                        <div class='dropdown-divider'></div>
+                        <a class='dropdown-item' href='../../modules/manager/logout.php'>Logout!</a>
+                      </ul>
+                    </div>
+                  </li>
+                  ";
                 else
-                  echo '<button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign_in">Sign in</button>';
+                  echo '
+                  <li class="nav-item">
+                    <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign_in">Sign in!</button>
+                  </li>
+                  ';
               ?>
+
           </ul>
         </div>
       </div>
