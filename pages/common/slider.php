@@ -8,16 +8,16 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="../../sources/img/zdj1.jpg" class="d-block w-100" alt="..." height="650" />
+      <img src="../../sources/img/zdjecie.jpg" class="d-block w-100" alt="..." height="650" />
       <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
+        <h5>We have best equipment</h5>
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="../../sources/img/zdj2.jpg" class="d-block w-100" alt="..." height="650" />
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide</h5>
+        <h5>Friendly atmosphere</h5>
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
