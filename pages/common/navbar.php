@@ -1,8 +1,9 @@
 <?php 
   require_once(__DIR__ . "/../../modules/manager.php"); 
+  require_once(__DIR__ . "/../../modules/changeInfo.php"); 
   require_once(__DIR__ . "/../../modules/functions.php"); 
 ?>
-    
+
 <!-- Modal Registration and login -->
 <div class="modal fade" id="sign_in" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -44,6 +45,26 @@
   </div>
 </div>
 
+<?php 
+  if(isset($ID) and isset($_SESSION['changeCode'])){
+    echo"
+      <script type='text/javascript'>
+        $(window).on('load', function() {
+          $('#changeInfo').modal('show');});
+      </script>";
+
+      $notificationChangeType = array(
+        'wrongMailSyntax' => 'danger',
+        'mailExist' => 'warning'
+      );
+
+      $notificationChangeTitle = array(
+        'wrongMailSyntax' => 'Wrong mail pattern!',
+        'mailExist' => 'This mail is assigned to someone else..'
+      );
+    }
+?>
+
 <!-- Modal change personal information -->
 <div class="modal fade" id="changeInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeInfoLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -54,14 +75,29 @@
       </div>
       <div class="modal-body">
         
-        <form id="changeInfoForm" method="post" action="">
-          <input class="form-control" type="text" disabled value="<?php echo $login; ?>">
-          <input class="form-control" name="cmail" type="email" placeholder="New mail" value="<?php echo $mail; ?>">
-          <input class="form-control" name="cnewPass" type="password" placeholder="New password" data-bs-toggle="tooltip" data-bs-placement="top" title="Keep empty if not wish to change">
-          <input class="form-control" name="coldPass" type="password" placeholder="Old password">
-        </form>
+      <?php if(isset($ID)){
+        if(isset($_SESSION['changeCode'])){
+          $changeCode = $_SESSION['changeCode'];
+          
+          echo '
+          <div class="alert alert-'.$notificationChangeType["$changeCode"].' alert-dismissible fade show" role="alert">
+          <strong>'.$notificationChangeTitle["$changeCode"].'</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          ';
+        }
 
-      </div>
+        echo "
+        <form id='changeInfoForm' method='post'>
+          <input class='form-control' type='text' disabled value='$login'>
+          <input class='form-control' name='cmail' type='email' placeholder='New mail' value='$mail'>
+          <input class='form-control' name='cnewPass' type='password' placeholder='New password' data-bs-toggle='tooltip' data-bs-placement='top' title='Keep empty if not wish to change'>
+          <input class='form-control' name='coldPass' type='password' placeholder='Old password'>
+        </form>
+        ";
+    
+      }?>
+    </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" form="changeInfoForm" class="btn btn-primary">Change</button>
@@ -153,7 +189,7 @@
 
                       <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='userMenu'>
                         <li><a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#changeInfo'>Change personal information</a></li>
-                        <li><a class='dropdown-item' href='#'>Change personal information</a></li>
+                        <!-- <li><a class='dropdown-item' href='#'>Change personal information</a></li> -->
                         <div class='dropdown-divider'></div>
                         <a class='dropdown-item' href='../../modules/logout.php'>Logout!</a>
                       </ul>

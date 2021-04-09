@@ -80,7 +80,7 @@
       }
     }//if isset llogin
 
-    elseif(isset($_SESSION['ID'])){
+    if(isset($_SESSION['ID'])){
       $ID = $_SESSION['ID'];
       
       $q = "SELECT * FROM _Users WHERE ID = '$ID'";
