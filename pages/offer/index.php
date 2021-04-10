@@ -39,34 +39,38 @@
           </div>
         </div>
       </div>
+      
+      
+    </div>
+    <div class="container p-xl-5" style="max-width: 75%;">
       <div class="row">
-        <h1 class="display-1 text-center">You will have chance to work with best 
+        <h1 class="display-1 text-center p-xl-5">You will have chance to work with best 
         professionalists</h1>
       </div>
-      <div class="row">
+      <div>
+        <div class="row mt-xl-5 mb-xl-5">
         <div class="col-md-6">
-          <div class="card md-3">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="../../sources/img/offer3.jpg" alt="img">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h4>Simon Hryszko</h4>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquam porta arcu sit amet tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse varius facilisis elit eleifend molestie. In eget blandit purus. Fusce aliquet nisi pulvinar magna faucibus, at mattis tellus tempor. Duis pulvinar ornare massa id porta. Suspendisse et eros non leo rutrum suscipit. Phasellus nec velit at dolor euismod mollis.</p>
-              </div>
+          <div class="card  ms-xl-5" style="max-width: 650px;">
+            <img src="" class="card-img-top " alt="Image" height="300">
+            <div class="card-body">
+              <h2 class="card-title">Szymon Hryszko</h2>
+              <p class="znaczniki">Wpisz tutaj swoj opis</p>
             </div>
           </div>
         </div>
         <div class="col-md-6">
-
+          <div class="card  ms-xl-5" style="max-width: 650px;">
+            <img src="" class="card-img-top " alt="Image" height="300">
+            <div class="card-body">
+              <h2 class="card-title">Piotr Miciak</h2>
+              <p class="znaczniki">Hello I will teach you how to create websites in HTML &amp; CSS. You will learn how to create "Fire works" in JavaScript. What's more if you chose PhotoShop course we will prepare images for our websites and do a lot more. </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <!--<div class="container">-->
       
-    <!--</div>-->
+    </div>
+    </div>
     <div class="container-fluid">
        
       <?php include("../common/footer.php"); ?>

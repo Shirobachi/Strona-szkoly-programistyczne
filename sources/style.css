@@ -83,5 +83,8 @@ input {
 
 .card-body p{
   font-size: 20px;
-  
+
+}
+.znaczniki{
+  font-size: 18px !important;
 }
