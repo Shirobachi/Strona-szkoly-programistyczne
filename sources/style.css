@@ -81,7 +81,7 @@ input {
 
 /* End Scroll bar */
 
-/* CSS of contact form */
-
-
-/* End of css contact form */
+.card-body p{
+  font-size: 20px;
+  
+}

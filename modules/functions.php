@@ -41,7 +41,9 @@
     
     elseif ($name =='contact' and strpos($wholePath, '/pages/contact/index.php') !== false)
       echo 'active';
-    
+
+    elseif ($name == 'offer' and strpos($wholePath, '/pages/offer/index.php') !== false)
+      echo 'active';
   }
 
 ?>

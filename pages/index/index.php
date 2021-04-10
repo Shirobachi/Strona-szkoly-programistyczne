@@ -8,11 +8,10 @@
 
     <?php require("../common/navbar.php"); ?>
     <?php include("../common/slider.php"); ?>
-
     <!-- 3 column section -->
     <div class="container-fluid">
       
-      <div class="row text-center padding bg-light">
+      <div class="row text-center p-xl-4 bg-light">
         <div class="col-md-12" id="pomoc">
           <h1 class="display-1">Write code with us!</h1>
           <h1 class="display-6">Best people with huge experience</h1>
@@ -20,7 +19,7 @@
         </div>
       </div>
 
-      <div class="row text-center">
+      <div class="row text-center p-xl-5">
         <div class="col-xs-12 col-sm-6 col-md-4">
           <i class="bi bi-code-slash display-1"></i>
           <h3 class="mt-1">Frontend</h3>
