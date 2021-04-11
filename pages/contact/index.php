@@ -17,7 +17,7 @@
         </div>
         <div class="row m-b-3">
           <div class="col-md-7 shadow rounded p-5">
-            <form action="https://formsubmit.co/zeo95818@cuoly.com" method="POST">
+            <form action="https://formsubmit.co/alt.j9-couzt768@yopmail.com" method="POST">
               <div class="row">
                 <div class="col mb-3">
                   <label class="form-label display-6">Surname</label>
@@ -30,7 +30,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label display-6">Email</label>
-                <input type="text" class="form-control" placeholder="name@email.com" name="Email">
+                <input type="email" class="form-control" placeholder="name@email.com" name="Email">
               </div>
               <div class="mb-3">
                 <label class="form-label display-6">Message</label>
