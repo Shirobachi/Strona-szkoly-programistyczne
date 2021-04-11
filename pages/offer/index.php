@@ -51,10 +51,10 @@
         <div class="row mt-xl-5 mb-xl-5">
         <div class="col-md-6">
           <div class="card  ms-xl-5" style="max-width: 650px;">
-            <img src="" class="card-img-top " alt="Image" height="300">
+            <img src="https://tinyl.io/3uD5" class="card-img-top " alt="Simon Hryszko [Image]">
             <div class="card-body">
               <h2 class="card-title">Szymon Hryszko</h2>
-              <p class="znaczniki">Wpisz tutaj swoj opis</p>
+              <p class="znaczniki pb-1">Hi! My name is Simon and I am teaching beckend. After you will be able to make static page I will show you how magicly move the page, how to page interact with user. My lessons are funny we laugh very much and I am doing my best to teach in friendly atmospthere!</p>
             </div>
           </div>
         </div>
