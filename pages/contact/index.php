@@ -50,7 +50,7 @@
         
       </div>
       
-     <?php include("../common/footer.php"); ?> 
+    <?php include("../common/footer.php"); ?> 
     </div>
 
     <!-- Enable tultips -->

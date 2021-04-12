@@ -31,6 +31,7 @@
     </div>
     <div class="carousel-item">
       <img src="../../sources/img/zdjecie_4.jpg" class="d-block w-100" alt="Image" height="650" />
+      <!-- Photo by <a href="https://unsplash.com/@brookecagle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brooke Cagle</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
       <div class="carousel-caption d-none d-md-block">
         <h1>Create new contact</h1>
         <p style="font-size: 25px;">On our courses you will meet great people. And create new relations for whole life.</p>
