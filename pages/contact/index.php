@@ -16,7 +16,7 @@
           <h1 class="text-center mb-5 shadow-sm p-5 display-1">Contact with Us</h1>
         </div>
         <div class="row m-b-3">
-          <div class="col-md-7 shadow rounded p-5">
+          <div class="col-md-12 shadow rounded p-5">
             <form action="https://formsubmit.co/alt.j9-couzt768@yopmail.com" method="POST">
               <div class="row">
                 <div class="col mb-3">
@@ -40,11 +40,6 @@
                 <button type="submit" class="btn btn-primary btn-lg">Send</button>
               </div>
             </form>
-          </div>
-          <div class="col-md-5">
-            <div>
-              <img id="zdj" class="img-fluid mx-auto d-block" src="../../sources/img/contact.png" height="500" width="500">
-            </div>
           </div>
         </div>
         
