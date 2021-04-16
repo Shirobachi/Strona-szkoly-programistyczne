@@ -8,15 +8,16 @@
 
     <?php require("../common/navbar.php"); ?>
     <?php include("../common/slider.php"); ?>
+    
 
     <!-- 3 column section -->
     <div class="container-fluid">
       <div class="container-fluid">
         <div>
-          <h1 class="text-center mb-5 shadow-sm p-5 display-1">Contact with Us</h1>
+          <h1 class="text-center mb-5 shadow p-5 display-1">Contact with Us</h1>
         </div>
         <div class="row m-b-3">
-          <div class="col-md-12 shadow rounded p-5">
+          <div class="col-md-12 shadow-lg rounded p-5">
             <form action="https://formsubmit.co/alt.j9-couzt768@yopmail.com" method="POST">
               <div class="row">
                 <div class="col mb-3">
