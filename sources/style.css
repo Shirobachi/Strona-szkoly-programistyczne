@@ -17,6 +17,11 @@ body {
   padding-right: 30px;
 }
 
+.cien{
+  text-shadow: -1px 0px 10px rgba(0,0,0,2);
+  font-size: 60px;
+}
+
 #nagl {
   padding: 30px;
 }
