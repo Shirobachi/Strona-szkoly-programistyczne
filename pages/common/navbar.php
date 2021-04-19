@@ -54,45 +54,56 @@
       </script>";
 
       $notificationChangeType = array(
-        'wrongMailSyntax' => 'danger',
-        'mailExist' => 'warning'
+        // 'noInput' => 'info',
+        'wrongPassSyntax' => 'warning',
+        // 'wrongMailSyntax' => 'warning',
+        // 'mailExist' => 'danger',
+        // 'samePasswords' => 'danger',
+        'noOldPass' => 'danger',
+        'wrongOldPass' => 'warning'
       );
 
       $notificationChangeTitle = array(
-        'wrongMailSyntax' => 'Wrong mail pattern!',
-        'mailExist' => 'This mail is assigned to someone else..'
+        'noInput' => 'You need to provide some data.',
+        'wrongPassSyntax' => 'Password can be b/w 6 and 50 chars and consist only from letters and digits!',
+        'wrongMailSyntax' => 'This is not good mail!',
+        'mailExist' => 'This mail exist in our system!',
+        'samePasswords' => 'Passwords cannot be the same!',
+        'noOldPass' => 'You need to type old password!',
+        'wrongOldPass' => 'The old password not match!'
       );
     }
 ?>
 
-<!-- Modal change personal information -->
+<!-- Modal change password -->
 <div class="modal fade" id="changeInfo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changeInfoLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="changeInfoLabel">Change personal information!</h5>
+        <h5 class="modal-title" id="changeInfoLabel">Change password!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         
-      <?php if(isset($ID)){
+      <?php
+      if(isset($ID)){
         if(isset($_SESSION['changeCode'])){
           $changeCode = $_SESSION['changeCode'];
-          
           echo '
           <div class="alert alert-'.$notificationChangeType["$changeCode"].' alert-dismissible fade show" role="alert">
           <strong>'.$notificationChangeTitle["$changeCode"].'</strong>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           ';
+          unset($_SESSION['changeCode']);
         }
 
         echo "
         <form id='changeInfoForm' method='post'>
           <input class='form-control' type='text' disabled value='$login'>
-          <input class='form-control' name='cmail' type='email' placeholder='New mail' value='$mail'>
-          <input class='form-control' name='cnewPass' type='password' placeholder='New password' data-bs-toggle='tooltip' data-bs-placement='top' title='Keep empty if not wish to change'>
-          <input class='form-control' name='coldPass' type='password' placeholder='Old password'>
+          <input class='form-control' type='email' disabled value='$mail'>
+          <input class='form-control' required name='coldPass' type='password' placeholder='Old password'>
+          <input class='form-control' required name='cnewPass' type='password' placeholder='New password' data-bs-toggle='tooltip' data-bs-placement='top' title='Keep empty if not wish to change'>
         </form>
         ";
     
@@ -129,6 +140,7 @@
               'loginSuccess' => 'success', 
               'notLoggedIn' => 'warning', 
               'logout' => 'success', 
+              'dataChanged' => 'success', 
             );
             
             $notificationTitle = array(
@@ -143,6 +155,7 @@
               'loginSuccess' => 'Login success!', 
               'notLoggedIn' => 'You are not logged in!', 
               'logout' => 'Logged out!', 
+              'dataChanged' => 'Password changed!', 
             );
 
             $notificationDesc = array(
@@ -157,6 +170,7 @@
               'loginSuccess' => 'Now you are logged in!', 
               'notLoggedIn' => 'To see that page you need to be logged in!', 
               'logout' => 'We already missed you!', 
+              'dataChanged' => '', 
             );
 
             echo "
@@ -190,8 +204,8 @@
                       </a>
 
                       <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='userMenu'>
-                        <li><a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#changeInfo'>Change personal information</a></li>
-                        <!-- <li><a class='dropdown-item' href='#'>Change personal information</a></li> -->
+                        <li><a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#changeInfo'>Change password</a></li>
+                        <!-- <li><a class='dropdown-item' href='#'>Change password</a></li> -->
                         <div class='dropdown-divider'></div>
                         <a class='dropdown-item' href='../../modules/logout.php'>Logout!</a>
                       </ul>
@@ -205,7 +219,6 @@
                   </li>
                   ';
               ?>
-
           </ul>
         </div>
       </div>
