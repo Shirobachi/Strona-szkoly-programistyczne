@@ -176,8 +176,7 @@ session_start();
 In the user panel, user can
 
 - log out itself
-
-![Log out](https://i.imgur.com/jo0ejeD.png)
+  ![Log out](https://i.imgur.com/jo0ejeD.png)
 
 - also can manage his account like change the password
   ![change link](https://i.imgur.com/kEqkDt8.png)
