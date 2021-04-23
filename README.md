@@ -1,5 +1,20 @@
 # Programming school by [Szymon Hryszko](github.com/Shirobachi) and [Piotr Miciak](github.com/ValadaRP)
 
+- [Table of content](#top)
+  - [Navbar](#Navbar)
+    - [Logo icon](#Logo-icon)
+    - [Page list](#Page-list)
+    - [Login/register or user panel](#Login/register-or-user-panel)
+      - [Registration and logging in](#Registration-and-logging-in)
+      - [User panel](#User-panel)
+    - [Pretty link to GitHub](#Pretty-link-to-GitHub)
+  - [Slider](#Slider)
+  - [Content](#Content)
+    - [Main page](#Main-page)
+    - [Offer](#Offer)
+    - [Contact](#Contact)
+    - [Footer](#Footer)
+
 ![Main page](https://i.imgur.com/gXSq6ni.png)
 This's starting page of programming school!
 
@@ -12,7 +27,7 @@ Every page consist of
 - Content area
 - Footer
 
-# Navbar
+## Navbar
 
 ![navar](https://i.imgur.com/PbatmJh.png)
 
@@ -23,11 +38,11 @@ Navbar consist of
 - Login or Register or user panel
 - Pretty link to [github](https://github.com/Shirobachi/AWWW-project)
 
-## Logo icon
+### **Logo icon**
 
 Logo icon redirect always to the main page
 
-## Page list
+### **Page list**
 
 This is list of available page at the time, also page where user is at the time will be highlighted.
 Hightlithing system is wrote in PHP and use two parameters (url and token) to decide if the page should be hightlisted or not:
@@ -51,11 +66,11 @@ Hightlithing system is wrote in PHP and use two parameters (url and token) to de
   }
 ```
 
-## Login/register or user panel
+### **Login/register or user panel**
 
 Depended if a user is already logged in or not will show up button Sign-in or user panel
 
-**Registration and logging in**
+#### **Registration and logging in**
 
 This module is written in PHP and connects to the database to save/find the user. Also, passwords are hashed and we implemented protection from SQL injection!
 
@@ -156,7 +171,7 @@ session_start();
   }//if connection is good
 ```
 
-**user panel**
+#### **User panel**
 
 In the user panel, user can
 
@@ -165,11 +180,11 @@ In the user panel, user can
 - also can manage his account like change the password
   ![change link](https://i.imgur.com/kEqkDt8.png)
 
-## Pretty link to [github](https://github.com/Shirobachi/AWWW-project)
+### **Pretty link to GitHub**
 
 This little pretty GitHub mascot is waving to the user when hovered and redirects to the GitHub repository where you're now. The code is made by [Tim Holman](https://tholman.com/)
 
-# Slider
+## Slider
 
 ![Slider](https://i.imgur.com/EwmP5PT.png)
 The slider is made by premade bootstrap classes. - Some images have descriptions!
@@ -188,7 +203,7 @@ The slider is made by premade bootstrap classes. - Some images have descriptions
   <div class="carousel-indicators">
     <button
       type="button"
-      data-bs-target="#slider"
+      #data-bs-target="#slider"
       data-bs-slide-to="0"
       class="active"
       aria-current="true"
@@ -196,19 +211,19 @@ The slider is made by premade bootstrap classes. - Some images have descriptions
     ></button>
     <button
       type="button"
-      data-bs-target="#slider"
+      #data-bs-target="#slider"
       data-bs-slide-to="1"
       aria-label="Slide 2"
     ></button>
     <button
       type="button"
-      data-bs-target="#slider"
+      #data-bs-target="#slider"
       data-bs-slide-to="2"
       aria-label="Slide 3"
     ></button>
     <button
       type="button"
-      data-bs-target="#slider"
+      #data-bs-target="#slider"
       data-bs-slide-to="3"
       aria-label="Slide 3"
     ></button>
@@ -275,7 +290,7 @@ The slider is made by premade bootstrap classes. - Some images have descriptions
   <button
     class="carousel-control-prev"
     type="button"
-    data-bs-target="#slider"
+    #data-bs-target="#slider"
     data-bs-slide="prev"
   >
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -285,7 +300,7 @@ The slider is made by premade bootstrap classes. - Some images have descriptions
   <button
     class="carousel-control-next"
     type="button"
-    data-bs-target="#slider"
+    #data-bs-target="#slider"
     data-bs-slide="next"
   >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -294,26 +309,26 @@ The slider is made by premade bootstrap classes. - Some images have descriptions
 </div>
 ```
 
-# Content
+## Content
 
 Content depends on the page where you are
 
-## Main page
+### **Main page**
 
 ![Main page's content](https://i.imgur.com/yZn5Prf.png)
 Here is a sneak peek of what should give users a boost to check our offer.
 
-## Offer
+### **Offer**
 
 ![Offer's content](https://i.imgur.com/v2nsLWw.png)
 Here new users can see what and by who we are teaching!
 
-## Contact
+### **Contact**
 
 ![Contact's content](https://i.imgur.com/gnQVwXq.png)
 Contact form is made in bootstrap (frontend) and mechanic is made by [formsubmit API](formsubmit.co)
 
-# Footer
+### **Footer**
 
 ![Footer](https://i.imgur.com/Qt8DXlr.png)
 The footer is quite simple because it's JUST FOOTER!
