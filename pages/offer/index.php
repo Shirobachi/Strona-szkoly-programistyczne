@@ -51,7 +51,7 @@
         <div class="row mt-xl-5 mb-xl-5">
         <div class="col-md-6">
           <div class="card  ms-xl-5" style="max-width: 650px;height: 600px; ">
-            <img src="https://tinyl.io/3uD5" class="card-img-top " alt="Simon Hryszko [Image]" height="300">
+            <img src="https://avatarfiles.alphacoders.com/194/194221.jpg" class="card-img-top " alt="Simon Hryszko [Image]" height="300">
             <div class="card-body p-xl-4">
               <h2 class="card-title">Szymon Hryszko</h2>
               <p class="znaczniki pb-1">Hi! My name is Simon and I am teaching beckend. After you will be able to make static page I will show you how magicly move the page, how to page interact with user. My lessons are funny we laugh very much and I am doing my best to teach in friendly atmospthere!</p>
@@ -60,7 +60,7 @@
         </div>
         <div class="col-md-6">
           <div class="card  ms-xl-5" style="max-width: 650px;height: 600px;">
-            <img src="" class="card-img-top " alt="Image" height="300">
+            <img src="https://avatarfiles.alphacoders.com/495/49573.jpg" class="card-img-top " alt="Image" height="300">
             <div class="card-body p-xl-4">
               <h2 class="card-title">Piotr Miciak</h2>
               <p class="znaczniki">Hello I will teach you how to create websites in HTML &amp; CSS. You will learn how to create "Fire works" in JavaScript. What's more if you chose PhotoShop course we will prepare images for our websites and do a lot more. </p>
