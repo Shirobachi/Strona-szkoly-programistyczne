@@ -1,21 +1,18 @@
-# Programming school
-
-Page for class AWWW by [Szymon Hryszko](github.com/Shirobachi) and [Piotr Miciak](github.com/ValadaRP)
+# Programming school by [Szymon Hryszko](github.com/Shirobachi) and [Piotr Miciak](github.com/ValadaRP)
 
 ![Main page](https://i.imgur.com/gXSq6ni.png)
 This's starting page of programming school!
 
-This's whole website was made in bootstrap as frontend framework.
-The backend is wrote in PHP language.
+This whole website was made in **bootstrap** (frontend) framework and **PHP** language (backend).
 
-On the every page you are
+Every page consist of
 
-- navbar
-- slider (optionally)
-- content area
-- footer
+- Navbar
+- Slider (optionally)
+- Content area
+- Footer
 
-## Navbar
+# Navbar
 
 ![navar](https://i.imgur.com/PbatmJh.png)
 
@@ -23,17 +20,17 @@ Navbar consist of
 
 - Logo icon
 - Page lists
-- Login/register or user panel
+- Login or Register or user panel
 - Pretty link to [github](https://github.com/Shirobachi/AWWW-project)
 
-### Logo icon
+## Logo icon
 
-Logo icon redirect always to main page
+Logo icon redirect always to the main page
 
-### Page list
+## Page list
 
 This is list of available page at the time, also page where user is at the time will be highlighted.
-Hightlithing system is wrote on PHP and use two parameters to decide if the page should be hightlisted or not:
+Hightlithing system is wrote in PHP and use two parameters (url and token) to decide if the page should be hightlisted or not:
 
 ```php
  function navbarActiv($name){
@@ -54,11 +51,13 @@ Hightlithing system is wrote on PHP and use two parameters to decide if the page
   }
 ```
 
-### Login/register or user panel
+## Login/register or user panel
 
-Depended if user is already logged in or not will show up button Sign in or user panel
+Depended if a user is already logged in or not will show up button Sign-in or user panel
 
-#### Registration and loggining in is wrote in PHP and connect to database to save / find user. Also passwords are hashed and we implemented protection from SQL injection!
+**Registration and logging in**
+
+This module is written in PHP and connects to the database to save/find the user. Also, passwords are hashed and we implemented protection from SQL injection!
 
 ```php
 session_start();
@@ -157,19 +156,26 @@ session_start();
   }//if connection is good
 ```
 
-#### user panel
+**user panel**
 
-In user panel user can log out itself and also can manage him account like change the password
-![change link](https://i.imgur.com/kEqkDt8.png)
+In the user panel, user can
 
-### Pretty link to [github](https://github.com/Shirobachi/AWWW-project)
+- log out itself
+  ![Log out](https://i.imgur.com/jo0ejeD.png)
+- also can manage his account like change the password
+  ![change link](https://i.imgur.com/kEqkDt8.png)
 
-This little pretty github mascote is waving to user when hovered and redirect to github repository where you're now. The code is made by [Tim Holman](https://tholman.com/)
+## Pretty link to [github](https://github.com/Shirobachi/AWWW-project)
 
-## Slider
+This little pretty GitHub mascot is waving to the user when hovered and redirects to the GitHub repository where you're now. The code is made by [Tim Holman](https://tholman.com/)
+
+# Slider
 
 ![Slider](https://i.imgur.com/EwmP5PT.png)
-The slider is made by premade bootstrap classes. Some images has description! Also slider has buttons what change image if clicked. The images are from [unsplash](https://unsplash.com/) all of them are on [Unplash licence](https://unsplash.com/license) what let us to use for free as long as we not earn of them.
+The slider is made by premade bootstrap classes. - Some images have descriptions!
+
+- The slider has buttons that change the image if clicked.
+- The images are from [unsplash](https://unsplash.com/) all of them are on [Unplash license](https://unsplash.com/license) which lets us use for free as long as we do not earn of them.
 
 ```html
 <!-- Slider -->
@@ -288,29 +294,27 @@ The slider is made by premade bootstrap classes. Some images has description! Al
 </div>
 ```
 
-### Footer
+# Content
 
-![Footer](https://i.imgur.com/Qt8DXlr.png)
-The footer is quete simple, because it's JUST FOOTER!
-Has link to authors' githubs pages and information about rights.
+Content depends on the page where you are
 
----
-
-### Content
-
-Content depends of page where you are
-
-#### Main page
+## Main page
 
 ![Main page's content](https://i.imgur.com/yZn5Prf.png)
-Here is sneak peak what should give users boost to check our offer.
+Here is a sneak peek of what should give users a boost to check our offer.
 
-#### Offer
+## Offer
 
 ![Offer's content](https://i.imgur.com/v2nsLWw.png)
-Here new user can see what and by who we are teaching!
+Here new users can see what and by who we are teaching!
 
-#### Contact
+## Contact
 
 ![Contact's content](https://i.imgur.com/gnQVwXq.png)
 Contact form is made in bootstrap (frontend) and mechanic is made by [formsubmit API](formsubmit.co)
+
+# Footer
+
+![Footer](https://i.imgur.com/Qt8DXlr.png)
+The footer is quite simple because it's JUST FOOTER!
+Has to link to authors' GitHub pages and information about rights.
