@@ -16,7 +16,7 @@
       <?php
         if($role == "a")
 
-        $q = "SELECT * FROM _Users";
+        $q = "SELECT * FROM _Users where role = 'u'";
         $result = mysqli_query($connection, $q);
 
 

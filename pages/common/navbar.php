@@ -209,7 +209,7 @@
                         if($role == "a")
                           echo "<li><a class='dropdown-item' href='../users/index.php'>Users</a></li>";
                         else
-                          echo "<li><a class='dropdown-item' href='../teachers/index.php'>Users</a></li>";
+                          echo "<li><a class='dropdown-item' href='../teachers/index.php'>Teachers</a></li>";
                         echo 
                         "<div class='dropdown-divider'></div>
                         <a class='dropdown-item' href='../../modules/logout.php'>Logout!</a>

@@ -118,7 +118,7 @@ session_start();
             $_SESSION['code'] = 'addingErrorMail';
         }//if some same login/mail
         else{
-          $q = "INSERT INTO _Users VALUES (NULL, '$login', '$pass', '$mail', 'u')";
+          $q = "INSERT INTO _Users SET login = '$login', pass = '$pass', mail = '$mail', role = 'u'";
           $query = mysqli_query($connection, $q);
 
           if($query)
@@ -176,12 +176,20 @@ session_start();
 In the user panel, user can
 
 - log out itself
-  
+
   ![Log out](https://i.imgur.com/jo0ejeD.png)
 
-- also can manage his account like change the password 
+- also can manage his account like change the password
 
   ![change link](https://i.imgur.com/kEqkDt8.png)
+
+- student can see list of teachers with mail and mailto link
+
+  ![](https://i.imgur.com/uwBlHLy.png)
+
+- Teachers can see students list, can also remove student or send they mail by auto generated mailto link
+
+  ![](https://i.imgur.com/ouC4isf.png)
 
 ### **Pretty link to GitHub**
 
