@@ -179,8 +179,8 @@ In the user panel, user can
   
   ![Log out](https://i.imgur.com/jo0ejeD.png)
 
-- also can manage his account like change the password
-- 
+- also can manage his account like change the password 
+
   ![change link](https://i.imgur.com/kEqkDt8.png)
 
 ### **Pretty link to GitHub**
