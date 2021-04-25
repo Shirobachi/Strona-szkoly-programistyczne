@@ -195,7 +195,7 @@
             <li class="nav-item"><a href="../offer/index.php" class="nav-link <?php navbarActiv('offer'); ?>">Offer</a></li>
             <li class="nav-item"><a href="../contact/index.php" class="nav-link <?php navbarActiv('contact'); ?>">Contact</a></li>
               <?php
-                if(isset($_SESSION['ID']))
+                if(isset($_SESSION['ID'])){
                   echo "
                   <li class='nav-item'>
                     <div class='mt-1 dropdown'>
@@ -204,14 +204,20 @@
                       </a>
 
                       <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='userMenu'>
-                        <li><a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#changeInfo'>Change password</a></li>
-                        <!-- <li><a class='dropdown-item' href='#'>Change password</a></li> -->
-                        <div class='dropdown-divider'></div>
+                        <li><a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#changeInfo'>Change password</a></li>";
+
+                        if($role == "a")
+                          echo "<li><a class='dropdown-item' href='../users/index.php'>Users</a></li>";
+                        else
+                          echo "<li><a class='dropdown-item' href='../teachers/index.php'>Users</a></li>";
+                        echo 
+                        "<div class='dropdown-divider'></div>
                         <a class='dropdown-item' href='../../modules/logout.php'>Logout!</a>
                       </ul>
                     </div>
                   </li>
                   ";
+                  }
                 else
                   echo '
                   <li class="nav-item">

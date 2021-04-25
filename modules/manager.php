@@ -43,7 +43,7 @@
             $_SESSION['code'] = 'addingErrorMail';
         }//if some same login/mail
         else{
-          $q = "INSERT INTO _Users VALUES (NULL, '$login', '$pass', '$mail', 'u')";
+          $q = "INSERT INTO _Users SET login = '$login', pass = '$pass', mail = '$mail', role = 'u'";
           $query = mysqli_query($connection, $q);
 
           if($query)
@@ -92,6 +92,5 @@
       $role = $row['role'];
     }//isset(SESSION.id)
 
-    mysqli_close($connection);
   }//if connection is good
 ?>

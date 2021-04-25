@@ -4,7 +4,6 @@
     <button type="button" data-bs-target="#slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" ></button>
     <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slide 2" ></button>
     <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slide 3" ></button>
-    <button type="button" data-bs-target="#slider" data-bs-slide-to="3" aria-label="Slide 3" ></button>
   </div>
 
   <div class="carousel-inner">
@@ -22,13 +21,7 @@
         <p style="font-size: 25px; " class="cien">On our course you will use best hardware on market!</p>
       </div>
     </div>
-    <div class="carousel-item">
-      <img src="../../sources/img/zdjecie_2.jpg" class="d-block w-100" alt="Image" height="500" />
-      <div class="carousel-caption d-none d-md-block">
-        <h1 class="cien">Third slide</h1>
-        <p style="font-size: 25px;" class="cien">Lorem ipsum dolor sit ami.</p>
-      </div>
-    </div>
+    
     <div class="carousel-item">
       <img src="../../sources/img/zdjecie_4.jpg" class="d-block w-100" alt="Image" height="500" />
       <!-- Photo by <a href="https://unsplash.com/@brookecagle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brooke Cagle</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->

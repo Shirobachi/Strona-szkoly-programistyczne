@@ -8,3 +8,7 @@
     <a href="https://github.com/ValadaRP" target="_blank">Piotr Miciak</a>!
   </div>
 </div>
+
+<?php 
+    mysqli_close($connection);
+?>
