@@ -14,7 +14,7 @@
     <div class="container pt-5">
 
       <?php
-        if($role == "a")
+        if($role == "a"){
 
         $q = "SELECT * FROM _Users where role = 'u'";
         $result = mysqli_query($connection, $q);
@@ -61,7 +61,7 @@
         }
 
         echo '</tbody></table>';
-
+      }
       ?>
 
       <?php include("../common/footer.php"); ?>
