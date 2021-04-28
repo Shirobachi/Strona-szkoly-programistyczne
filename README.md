@@ -15,6 +15,8 @@
     - [Contact](#Contact)
     - [Footer](#Footer)
 - [Responsibilities](#Responsibilities)
+  - [Frontend](#Frontend)
+  - [Backend](#Backend)
 
 ![Main page](https://i.imgur.com/gXSq6ni.png)
 This's starting page of programming school!
@@ -355,7 +357,7 @@ Has to link to authors' GitHub pages and information about rights.
 - Editing pictures **made by** [Piotr Miciak](github.com/ValadaRP)
 - Constructing boostrap grid **made by** [Piotr Miciak](github.com/ValadaRP)
 
-Backend
+## Backend
 
 - Contact form mechanizm **made by** [Piotr Miciak](github.com/ValadaRP)
 - Logginning system **made by** [Szymon Hryszko](github.com/Shirobachi)
