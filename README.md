@@ -1,6 +1,6 @@
 # Programming school by [Szymon Hryszko](github.com/Shirobachi) and [Piotr Miciak](github.com/ValadaRP)
 
-- [Table of content](#top)
+- [List of content](#top)
   - [Navbar](#Navbar)
     - [Logo icon](#Logo-icon)
     - [Page list](#Page-list)
@@ -14,6 +14,7 @@
     - [Offer](#Offer)
     - [Contact](#Contact)
     - [Footer](#Footer)
+- [Responsibilities](#Responsibilities)
 
 ![Main page](https://i.imgur.com/gXSq6ni.png)
 This's starting page of programming school!
@@ -344,3 +345,22 @@ Contact form is made in bootstrap (frontend) and mechanic is made by [formsubmit
 ![Footer](https://i.imgur.com/Qt8DXlr.png)
 The footer is quite simple because it's JUST FOOTER!
 Has to link to authors' GitHub pages and information about rights.
+
+# Responsibilities
+
+## Frontend
+
+- Main components e.g. slider or footer **made by** [Piotr Miciak](github.com/ValadaRP)
+- Subpages e.g. offer, contact **made by** [Piotr Miciak](github.com/ValadaRP)
+- Editing pictures **made by** [Piotr Miciak](github.com/ValadaRP)
+- Constructing boostrap grid **made by** [Piotr Miciak](github.com/ValadaRP)
+
+Backend
+
+- Contact form mechanizm **made by** [Piotr Miciak](github.com/ValadaRP)
+- Logginning system **made by** [Szymon Hryszko](github.com/Shirobachi)
+- Registration system **made by** [Szymon Hryszko](github.com/Shirobachi)
+- Data change system **made by** [Szymon Hryszko](github.com/Shirobachi)
+- Notification system system **made by** [Szymon Hryszko](github.com/Shirobachi)
+- List of users **made by** [Szymon Hryszko](github.com/Shirobachi)
+- List of teachers **made by** [Szymon Hryszko](github.com/Shirobachi)
