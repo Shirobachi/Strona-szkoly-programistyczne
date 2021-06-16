@@ -6,3 +6,19 @@
   $_db = "kurs";
 
 ?>
+
+-- 
+-- Editor SQL for DB table _Users
+-- Created by http://editor.datatables.net/generator
+-- 
+
+CREATE TABLE IF NOT EXISTS `_Users` (
+	`ID` int(10) NOT NULL auto_increment,
+	`login` varchar(255),
+	`pass` varchar(255),
+	`mail` varchar(255),
+	`role` varchar(255),
+	`class` varchar(255),
+	PRIMARY KEY( `ID` )
+);
+'+
