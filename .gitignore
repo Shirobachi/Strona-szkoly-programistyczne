@@ -1,3 +1,4 @@
 .vscode/sftp.json
 dbconnection.php
 .history/*
+modules/.dbconnection.php
