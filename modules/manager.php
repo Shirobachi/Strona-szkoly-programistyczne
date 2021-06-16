@@ -2,8 +2,8 @@
 
   session_start();
   
-  ini_set('display_errors', '1');
-  error_reporting(E_ALL);
+  // ini_set('display_errors', '1');
+  // error_reporting(E_ALL);
   
   require_once(__DIR__ . "/.dbconnection.php");
   $connection = mysqli_connect($_server, $_login, $_pass, $_db);
