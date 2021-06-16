@@ -1,4 +1,5 @@
 # Programming school by [Szymon Hryszko](github.com/Shirobachi) and [Piotr Miciak](github.com/ValadaRP)
+[![Check page online](https://img.shields.io/website?down_color=lightgrey&down_message=Strona%20nie%20jest%20dost%C4%99pna%20%7C%20Website%20unavailable%21&style=for-the-badge&up_color=offline&up_message=Zobacz%20stron%C4%99%20online%20%7C%20Check%20page%20online%21&url=https%3A%2F%2Fkurs.hryszko.dev)](https://kurs.hryszko.dev/)
 
 - [List of content](#top)
   - [Navbar](#Navbar)
